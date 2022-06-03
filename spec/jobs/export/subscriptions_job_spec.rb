@@ -34,7 +34,7 @@ describe Export::SubscriptionsJob do
 
     it 'and saves it' do
       subject.perform
-
+      sleep 5
 
       lines = file.read.lines
       expect(lines.size).to eq(3)
@@ -47,6 +47,7 @@ describe Export::SubscriptionsJob do
 
     it 'and saves it' do
       subject.perform
+      sleep 5
 
       expect(file.generated_file).to be_attached
     end

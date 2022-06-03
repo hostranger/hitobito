@@ -32,6 +32,7 @@ describe Export::PeopleExportJob do
 
     it 'and saves it' do
       subject.perform
+      sleep 5
 
       lines = file.read.lines
       expect(lines.size).to eq(3)
@@ -49,6 +50,8 @@ describe Export::PeopleExportJob do
 
       it 'and saves it with single line per household' do
         subject.perform
+        sleep 5
+
         lines = file.read.lines
         expect(lines.size).to eq(2)
       end
@@ -60,6 +63,8 @@ describe Export::PeopleExportJob do
 
       it 'renders standard columns' do
         subject.perform
+        sleep 5
+
         expect(csv.headers.last).not_to eq 'Zusätzliche Angaben'
       end
 
@@ -67,6 +72,8 @@ describe Export::PeopleExportJob do
         user.table_display_for(group).update(selected: %w(additional_information))
         Person.update_all(additional_information: 'bla bla')
         subject.perform
+        sleep 5
+
         expect(csv.headers.last).to eq 'Zusätzliche Angaben'
         expect(csv.first['Zusätzliche Angaben']).to eq 'bla bla'
       end
@@ -79,6 +86,7 @@ describe Export::PeopleExportJob do
 
     it 'and saves it' do
       subject.perform
+      sleep 5
 
       lines = file.read.lines
       expect(lines.size).to eq(3)
@@ -94,6 +102,8 @@ describe Export::PeopleExportJob do
 
     it 'and saves it' do
       subject.perform
+      sleep 5
+
       expect(file.generated_file).to be_attached
     end
   end
