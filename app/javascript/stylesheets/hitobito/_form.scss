@@ -361,7 +361,7 @@ textarea {
   }
 }
 
-.control-group .fields {
+.fields {
   .controls-row {
     border-bottom: 1px solid $grayLight;
     margin-bottom: 10px;
@@ -381,6 +381,7 @@ textarea {
 
 .controls > .text {
   line-height: 29px;
+  padding-top: 4.5px;
   padding-bottom: 8px;
   vertical-align: middle;
   display: inline-block;
